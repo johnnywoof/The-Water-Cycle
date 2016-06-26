@@ -1,0 +1,5 @@
+name: The Water Cycle
+version: 1.0
+main: me.johnnywoof.twc.WaterCycle
+author: Johnnywoof
+database: false
