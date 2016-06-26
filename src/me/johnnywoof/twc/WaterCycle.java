@@ -19,8 +19,10 @@ public class WaterCycle extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 
+		this.saveDefaultConfig();
+
 		MAX_HEIGHT = this.getConfig().getInt("max-height", 500);
-		TASK_TIMER_INTERVAL = this.getConfig().getInt("task-timer-interval", 100);
+		TASK_TIMER_INTERVAL = (this.getConfig().getInt("task-timer-interval", 5) * 20);
 
 		this.getServer().getPluginManager().registerEvents(this, this);
 
