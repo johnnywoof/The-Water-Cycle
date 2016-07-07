@@ -33,7 +33,9 @@ public class WaterCycle extends JavaPlugin implements Listener {
 
 		String worldName = event.getWorld().getName();
 
-		if (event.toWeatherState()) {
+		if (!event.toWeatherState()) {
+
+			//Evaporating villagers
 
 			if (!this.tasks.containsKey(worldName)) {
 
@@ -44,6 +46,8 @@ public class WaterCycle extends JavaPlugin implements Listener {
 			}
 
 		} else {
+
+			//Raining villagers
 
 			Integer id = this.tasks.get(worldName);
 
