@@ -1,0 +1,5 @@
+#Villagers beyond this height (y-axis blocks) will hover
+max-height: 500
+
+#The amount of seconds to set the timer interval at
+task-timer-interval: 5
