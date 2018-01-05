@@ -39,10 +39,6 @@ jobs:
       - run: gradle uploadArchives
 
       - run:
-          name: Compile executable Jar
-          command: gradle runnableJar
-
-      - run:
           name: Publish to GitHub Repository
           working_directory: ~/mvn-repo
-          command: echo "$public_repo_deploy_key" > deploy.key.encoded && base64 -d deploy.key.encoded > deploy.key && rm deploy.key.encoded && chmod 600 deploy.key && eval `ssh-agent -s` && ssh-add deploy.key && git clone git@github.com:johnnywoof/MavenRepository.git && cd MavenRepository && git config user.email "example@example.com" && git config user.name "Build Server" && cp -r /tmp/repo/* . && mkdir -p artifacts && cp -r ~/repo/build/libs/*-all-*.jar artifacts/ && git add * && git commit -m "Update project $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME" && git push origin && rm ../deploy.key
+          command: echo "$public_repo_deploy_key" > deploy.key.encoded && base64 -d deploy.key.encoded > deploy.key && rm deploy.key.encoded && chmod 600 deploy.key && eval `ssh-agent -s` && ssh-add deploy.key && git clone git@github.com:johnnywoof/MavenRepository.git && cd MavenRepository && git config user.email "example@example.com" && git config user.name "Build Server" && cp -r /tmp/repo/* . && git add * && git commit -m "Update project $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME" && git push origin && rm ../deploy.key
